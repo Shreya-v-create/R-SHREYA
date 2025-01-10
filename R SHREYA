@@ -1,1 +1,10 @@
-
+// a middlware that allows us to get to the public reposetry where we have the html css and js (front end)
+app.use(express.static(path.join(__dirname, 'public')));
+  message: 'Too many requests from this IP, please try again in an hour!',
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+…d routes ---------> wich means all the URL's that we didn't handlle in the app for example /api/v1/toursssssss :):):):)
+// pay attention you can't put this middlware before the two routes handlers !!!!!!!!! because it will get throw it fir…
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
